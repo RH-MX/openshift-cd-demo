@@ -1,0 +1,16 @@
+- hosts: docker
+  become: yes
+  gather_facts: false
+  become_method: sudo
+  tasks:
+    - name: " /etc/sysconfig/docker"
+      copy:
+        src: "sysconfig-docker" # El archivo a distribuir
+        dest:  /etc/sysconfig/docker
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+    - name: Restart service docker, in all cases
+      service:
+        name: docker
+        state: restarted

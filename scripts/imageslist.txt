@@ -1,0 +1,8 @@
+ 
+openshift/jenkins-agent-maven-35-centos7 to openshift/jenkins-agent-maven-35-centos7
+docker.io/siamaksade/jenkins-slave-skopeo-centos7 to openshift/jenkins-slave-skopeo-centos7
+openshift/wildfly-120-centos7 to openshift/wildfly-120-centos7
+postgresql:9.5 to openshift/postgresql:9.5
+docker.io/openshiftdemos/gogs:0.11.34 to openshift/gogs:0.11.34
+docker.io/sonatype/nexus3:3.13.0 to openshift/nexus3:3.13.0
+docker.io/siamaksade/sonarqube:latest to openshift/sonarqube:latest

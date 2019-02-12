@@ -1,0 +1,12 @@
+- hosts: all
+  become: yes
+  gather_facts: false
+  become_method: sudo
+  tasks:
+    - name: "resolv.conf"
+      copy:
+        src: "resolv.conf" # El archivo a distribuir
+        dest: /etc/resolv.conf
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r

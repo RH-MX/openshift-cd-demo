@@ -1,0 +1,12 @@
+- hosts: all
+  become: yes
+  gather_facts: false
+  become_method: sudo
+  tasks:
+    - name: "Hosts"
+      copy:
+        src: "hosts" # El archivo a distribuir
+        dest: /etc/hosts
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r

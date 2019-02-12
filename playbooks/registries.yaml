@@ -1,0 +1,12 @@
+- hosts: docker
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: "/etc/containers/registries.conf"
+      copy:
+        src: "registries.conf"
+        dest: /etc/containers/registries.conf
+    - name: Restart docker
+      service:
+        name: docker
+        state: restarted
