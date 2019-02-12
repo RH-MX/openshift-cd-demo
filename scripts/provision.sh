@@ -169,11 +169,11 @@ function deploy() {
 
   sleep 2
 
-  oc new-app jenkins-ephemeral -n cicd-$PRJ_SUFFIX
+  oc new-app jenkins-persistent -n cicd-$PRJ_SUFFIX
 
   sleep 2
 
-  local template=https://raw.githubusercontent.com/$GITHUB_ACCOUNT/openshift-cd-demo/$GITHUB_REF/cicd-template.yaml
+  local template=https://raw.githubusercontent.com/RH-MX/openshift-cd-demo/ocp-3.11/cicd-template.yaml
   echo "Using template $template"
   oc $ARG_OC_OPS new-app -f $template -p DEV_PROJECT=dev-$PRJ_SUFFIX -p STAGE_PROJECT=stage-$PRJ_SUFFIX -p DEPLOY_CHE=$ARG_DEPLOY_CHE -p EPHEMERAL=$ARG_EPHEMERAL -p ENABLE_QUAY=$ARG_ENABLE_QUAY -p QUAY_USERNAME=$ARG_QUAY_USER -p QUAY_PASSWORD=$ARG_QUAY_PASS -n cicd-$PRJ_SUFFIX 
 }
@@ -241,7 +241,7 @@ fi
 pushd ~ >/dev/null
 START=`date +%s`
 
-echo_header "OpenShift CI/CD Demo ($(date))"
+echo_header "OpenShift CI/CD Tenant ($(date))"
 
 case "$ARG_COMMAND" in
     delete)
