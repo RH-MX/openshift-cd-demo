@@ -189,7 +189,7 @@ function deploy() {
   git clone https://github.com/OpenShiftDemos/openshift-tasks.git
   cd openshift-tasks
 
-  git remote add gogs http://gogs-cicd.apps.$GUID.example.opentlc.com/CICDLabs/openshift-tasks.git
+  git remote add gogs http://$GOGS_HOSTNAME/gogs/openshift-tasks.git
   git push -u gogs master
 
   CICD_NAMESPACE=cicd-$PRJ_SUFFIX
